@@ -39,13 +39,13 @@ path <- c("Aromatase_inhibitor_responsive_module",
 i <- path[7]
 pdf(paste0("./",i,"_.pdf"),height = 8, width = 8)
 ggplot(pathway_score,aes(x=SNF,y=pathway_score[,i],color=SNF))+
-  theme_bw()+#改变绘图主题
-  theme(panel.grid = element_blank())+#去掉背景网格
+  theme_bw()+
+  theme(panel.grid = element_blank())+
   #stat_compare_means()+
-  xlab("")+ylab(i)+#修改横坐标
+  xlab("")+ylab(i)+
   geom_boxplot(outlier.colour="gray", outlier.shape=16,outlier.size=1.5)+
-  #stat_summary(fun.y = mean, geom = "point", shape = 23, size=4)+#将平均点添加
-  geom_jitter(shape=16, position = position_jitter(0.2))+###将点添加
+  #stat_summary(fun.y = mean, geom = "point", shape = 23, size=4)+
+  geom_jitter(shape=16, position = position_jitter(0.2))+
   scale_color_manual(values = col)+
   stat_compare_means(method = "kruskal.test", label = "p.format", label.x = 1.5, label.y = max(pathway_score[,i]) * 1.1)
 dev.off()
