@@ -37,8 +37,8 @@ ggviolin(gsva_matrix1, x = "SNF_Subtype", y = "Cell_Cycle_Scores", fill = "SNF_S
          palette = c("steelblue", "forestgreen", "orange", "firebrick"),
          add = "boxplot",
          add.params = list(fill = "white", width = 0.2)) +
-  stat_compare_means(comparisons = comparisons, method = "t.test") +  # 两两比较
-  stat_compare_means(method = "kruskal.test") +  # 整体检验
+  stat_compare_means(comparisons = comparisons, method = "t.test") +
+  stat_compare_means(method = "kruskal.test") +
   theme_minimal(base_size = 14) +
   theme(
     panel.grid = element_blank(),
